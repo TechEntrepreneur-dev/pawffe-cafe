@@ -110,7 +110,7 @@
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="md:hidden z-50 text-white nav-link focus:outline-none" aria-label="Toggle Menu">
+            <button id="mobile-menu-btn" class="md:hidden z-50 text-white focus:outline-none transition-colors" aria-label="Toggle Menu">
                 <i data-lucide="menu" class="w-7 h-7"></i>
             </button>
         </div>
@@ -235,7 +235,7 @@
                 <!-- Menu Card 1 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1484723091791-c0d759fce3f5?auto=format&fit=crop&w=600&q=80" alt="Healthy Breakfast Plate" class="w-full h-full object-cover img-zoom">
+                        <img src="https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=600&q=80" alt="Healthy Breakfast Plate" class="w-full h-full object-cover img-zoom">
                     </div>
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
@@ -250,7 +250,7 @@
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <div class="absolute top-3 right-3 bg-white text-brown text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md">Customer Favorite</div>
-                        <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80" alt="Iced Caramel Coffee" class="w-full h-full object-cover img-zoom">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="Iced Caramel Coffee" class="w-full h-full object-cover img-zoom">
                     </div>
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
@@ -320,7 +320,7 @@
                     </div>
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?auto=format&fit=crop&w=600&q=80" alt="Dog resting by table" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Cute dog resting at cafe" class="w-full h-auto img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Warm aesthetic cafe interior" class="w-full h-auto img-zoom">
@@ -329,7 +329,7 @@
                     <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80" alt="Delicious cafe food" class="w-full h-auto img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1522049187313-2d21a24d5b24?auto=format&fit=crop&w=600&q=80" alt="Friends enjoying coffee together" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1529068755536-a5ca0bccc360?auto=format&fit=crop&w=600&q=80" alt="Friends enjoying coffee together" class="w-full h-auto img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Barista preparing coffee" class="w-full h-auto img-zoom">
@@ -568,9 +568,10 @@
         const logoText = document.querySelector('.logo-text');
         const navLinks = document.querySelectorAll('.nav-link');
         const menuBtn = document.getElementById('mobile-menu-btn');
+        let isMenuOpen = false;
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+        function updateNavState() {
+            if (window.scrollY > 50 || isMenuOpen) {
                 navbar.classList.add('nav-scrolled');
                 navbar.classList.remove('py-4');
                 navbar.classList.add('py-2');
@@ -583,30 +584,32 @@
                 menuBtn.classList.add('text-white');
                 menuBtn.classList.remove('text-charcoal');
             }
-        });
+        }
+
+        window.addEventListener('scroll', updateNavState);
 
         // Mobile Menu Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
-        let isMenuOpen = false;
 
         function toggleMenu() {
             isMenuOpen = !isMenuOpen;
             if (isMenuOpen) {
                 mobileMenu.classList.remove('translate-x-full');
-                mobileBtn.innerHTML = '<i data-lucide="x" class="w-7 h-7 text-charcoal"></i>';
+                menuBtn.innerHTML = '<i data-lucide="x" class="w-7 h-7"></i>';
             } else {
                 mobileMenu.classList.add('translate-x-full');
-                const scrollColor = window.scrollY > 50 ? 'text-charcoal' : 'text-white';
-                mobileBtn.innerHTML = `<i data-lucide="menu" class="w-7 h-7 ${scrollColor}"></i>`;
+                menuBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>';
             }
             lucide.createIcons();
+            updateNavState(); // Keep the icon color aligned with the background state
         }
 
-        mobileBtn.addEventListener('click', toggleMenu);
+        menuBtn.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
+            link.addEventListener('click', () => {
+                if (isMenuOpen) toggleMenu();
+            });
         });
     </script>
 </body>
