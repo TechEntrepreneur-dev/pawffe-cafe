@@ -5,19 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pawffe | Pet Friendly Restaurant & Cafe | Beach Road</title>
     <meta name="description" content="Pawffe is a premium pet-friendly restaurant and café on Beach Road, Endada. Enjoy great food, ocean views, and a relaxed lifestyle where your pets are always welcome.">
-    
-    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Configuration & Custom CSS -->
     <script>
         tailwind.config = {
             theme: {
@@ -47,7 +43,7 @@
             color: #2B2B2B;
             -webkit-font-smoothing: antialiased;
         }
-        
+
         /* Masonry Gallery */
         .masonry {
             column-count: 1;
@@ -62,7 +58,7 @@
             overflow: hidden;
             position: relative;
         }
-        
+
         /* Image Hover Zoom Effect */
         .img-zoom { transition: transform 0.7s ease; }
         .masonry-item:hover .img-zoom, .group:hover .img-zoom { transform: scale(1.05); }
@@ -71,12 +67,10 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Mobile bottom spacing to prevent content hiding behind sticky bar */
         @media (max-width: 640px) {
             body { padding-bottom: 72px; }
         }
 
-        /* Navbar Transition */
         #navbar { transition: all 0.3s ease; }
         .nav-scrolled {
             background-color: rgba(255, 255, 255, 0.95) !important;
@@ -85,8 +79,7 @@
             color: #2B2B2B !important;
         }
         .nav-scrolled .logo-text, .nav-scrolled .nav-link { color: #2B2B2B !important; }
-        
-        /* Gradient overlays */
+
         .hero-gradient {
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
         }
@@ -94,13 +87,10 @@
 </head>
 <body class="bg-light relative">
 
-    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 bg-transparent text-white py-4 px-6 md:px-12">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo -->
             <a href="#" class="logo-text font-serif text-3xl font-bold tracking-tight z-50 text-white">Pawffe<span class="text-brown">.</span></a>
-            
-            <!-- Desktop Menu -->
+
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="nav-link text-white hover:text-sand transition font-medium">Our Story</a>
                 <a href="#menu" class="nav-link text-white hover:text-sand transition font-medium">Menu</a>
@@ -109,13 +99,11 @@
                 <a href="#reserve" class="bg-ocean hover:bg-[#23484c] text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg">Reserve a Table</a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
             <button id="mobile-menu-btn" class="md:hidden z-50 text-white focus:outline-none transition-colors" aria-label="Toggle Menu">
                 <i data-lucide="menu" class="w-7 h-7"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 text-2xl font-serif">
             <a href="#about" class="mobile-link text-charcoal hover:text-brown">Our Story</a>
             <a href="#menu" class="mobile-link text-charcoal hover:text-brown">Menu</a>
@@ -124,15 +112,12 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-        <!-- Background Image -->
         <div class="absolute inset-0 z-0 bg-gray-900">
             <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1920" alt="Ocean view premium cafe" class="w-full h-full object-cover opacity-90" />
             <div class="absolute inset-0 hero-gradient z-10"></div>
         </div>
 
-        <!-- Hero Content -->
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
             <div class="flex justify-center gap-4 mb-6 text-sand text-sm uppercase tracking-widest font-medium">
                 <span class="flex items-center gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i> 4.4 Rating</span>
@@ -141,15 +126,15 @@
                 <span class="opacity-70">|</span>
                 <span class="flex items-center gap-1"><i data-lucide="waves" class="w-4 h-4"></i> Beachfront</span>
             </div>
-            
+
             <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6 leading-tight drop-shadow-lg">
                 Where Coffee, Coastlines & Companions Meet
             </h1>
-            
+
             <p class="text-lg md:text-xl text-sand/90 mb-10 max-w-2xl mx-auto font-light drop-shadow-md">
                 Enjoy great food, calming ocean views, and a warm aesthetic space where your pets are always welcome.
             </p>
-            
+
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a href="#reserve" class="w-full sm:w-auto bg-ocean hover:bg-[#23484c] text-white px-8 py-4 rounded-full font-medium transition text-lg shadow-xl text-center">
                     Reserve a Table
@@ -160,7 +145,6 @@
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
             <a href="#about" class="text-white/70 hover:text-white transition" aria-label="Scroll down">
                 <i data-lucide="chevron-down" class="w-8 h-8"></i>
@@ -168,7 +152,6 @@
         </div>
     </header>
 
-    <!-- WHY CHOOSE US (Icon Bar) -->
     <section class="bg-sand py-12 border-b border-brown/10 relative z-30">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-wrap justify-center md:justify-between items-center gap-8 text-center md:text-left">
@@ -196,14 +179,13 @@
         </div>
     </section>
 
-    <!-- ABOUT / STORY SECTION -->
     <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-light">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] group bg-gray-200">
                 <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800" alt="Cute dog resting at a premium cafe" class="w-full h-full object-cover img-zoom">
                 <div class="absolute inset-0 bg-ocean/10"></div>
             </div>
-            
+
             <div class="space-y-6">
                 <h4 class="text-brown uppercase tracking-widest text-sm font-bold">Our Philosophy</h4>
                 <h2 class="font-serif text-4xl md:text-5xl text-charcoal leading-tight">
@@ -222,7 +204,6 @@
         </div>
     </section>
 
-    <!-- MENU / OFFERINGS SECTION -->
     <section id="menu" class="py-24 bg-white px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -232,7 +213,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Menu Card 1 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <img src="https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=600&q=80" alt="Healthy Breakfast Plate" class="w-full h-full object-cover img-zoom">
@@ -240,13 +220,12 @@
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
                             <h3 class="font-serif text-2xl mb-2 text-charcoal">Breakfast Specials</h3>
-                            <p class="text-gray-600 text-sm mb-4">Start your day right with our fresh, locally sourced morning plates. Includes avocado toasts, pancakes, and healthy bowls.</p>
+                            <p class="text-gray-600 text-sm mb-4">Start your day right with our fresh plates. Includes avocado toasts, pancakes, and healthy bowls.</p>
                         </div>
                         <span class="text-ocean font-medium text-sm mt-auto block">Served till 12 PM</span>
                     </div>
                 </div>
 
-                <!-- Menu Card 2 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <div class="absolute top-3 right-3 bg-white text-brown text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md">Customer Favorite</div>
@@ -261,7 +240,6 @@
                     </div>
                 </div>
 
-                <!-- Menu Card 3 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80" alt="Latte Art Coffee" class="w-full h-full object-cover img-zoom">
@@ -275,7 +253,6 @@
                     </div>
                 </div>
 
-                <!-- Menu Card 4 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=600&q=80" alt="Artisan Cake Dessert" class="w-full h-full object-cover img-zoom">
@@ -283,7 +260,7 @@
                     <div class="p-6 flex-grow flex flex-col justify-between">
                         <div>
                             <h3 class="font-serif text-2xl mb-2 text-charcoal">Artisan Desserts</h3>
-                            <p class="text-gray-600 text-sm mb-4">Indulge in our selection of freshly baked pastries, cakes, and sweet treats. The perfect pairing for your coffee.</p>
+                            <p class="text-gray-600 text-sm mb-4">Indulge in freshly baked pastries and cakes. The perfect pairing for your coffee.</p>
                         </div>
                         <span class="text-ocean font-medium text-sm mt-auto block">Baked Daily</span>
                     </div>
@@ -298,7 +275,6 @@
         </div>
     </section>
 
-    <!-- GALLERY SECTION -->
     <section id="gallery" class="py-24 bg-light px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
@@ -312,7 +288,6 @@
             </div>
 
             <div class="masonry">
-                <!-- Gallery Images with distinct, high quality IDs -->
                 <div class="masonry-item group shadow-soft bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beautiful ocean view" class="w-full h-auto img-zoom">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
@@ -328,9 +303,9 @@
                 <div class="masonry-item group shadow-soft bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80" alt="Delicious cafe food" class="w-full h-auto img-zoom">
                 </div>
-                      <div class="masonry-item group shadow-soft bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1529068755536-a5ca0bccc360?auto=format&fit=crop&w=600&q=80" alt="Friends enjoying coffee together" class="w-full h-auto img-zoom">
-                      </div>
+                <div class="masonry-item group shadow-soft bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=600&q=80" alt="Friends enjoying coffee together" class="w-full h-auto img-zoom">
+                </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Barista preparing coffee" class="w-full h-auto img-zoom">
                 </div>
@@ -338,7 +313,6 @@
         </div>
     </section>
 
-    <!-- REVIEWS / SOCIAL PROOF -->
     <section class="py-24 bg-sand px-6 md:px-12 overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
@@ -352,9 +326,7 @@
                 <h2 class="font-serif text-3xl md:text-4xl text-charcoal">Rated 4.4 out of 250+ Reviews</h2>
             </div>
 
-            <!-- Carousel -->
             <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0">
-                <!-- Review 1 -->
                 <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -369,12 +341,11 @@
                     </div>
                 </div>
 
-                <!-- Review 2 -->
                 <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-gray-700 italic mb-6">"Perfect breakfast experience. I come here to work on my laptop on weekends. The Wi-Fi is fast, the seating is comfortable, and the vibe is unbeatable."</p>
+                    <p class="text-gray-700 italic mb-6">"Perfect breakfast experience. I come here to work on my laptop. The Wi-Fi is fast and the vibe is unbeatable."</p>
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-sand rounded-full flex items-center justify-center font-bold text-brown">V</div>
                         <div>
@@ -384,12 +355,11 @@
                     </div>
                 </div>
 
-                <!-- Review 3 -->
                 <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star-half" class="w-4 h-4 fill-current"></i>
                     </div>
-                    <p class="text-gray-700 italic mb-6">"Loved the pet-friendly vibe. It's so rare to find a truly premium spot in Vizag that treats dogs so well. The aesthetic is perfect for Instagram."</p>
+                    <p class="text-gray-700 italic mb-6">"Loved the pet-friendly vibe. It's so rare to find a truly premium spot in Vizag that treats dogs so well."</p>
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 bg-sand rounded-full flex items-center justify-center font-bold text-brown">P</div>
                         <div>
@@ -398,39 +368,18 @@
                         </div>
                     </div>
                 </div>
-                
-                 <!-- Review 4 -->
-                <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
-                    <div class="flex text-ocean mb-4 gap-1">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-gray-700 italic mb-6">"One of the best cafes on Beach Road. Beautiful sunset views, great service, and the desserts are top notch. Highly recommend for dates!"</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-sand rounded-full flex items-center justify-center font-bold text-brown">R</div>
-                        <div>
-                            <h4 class="font-bold text-charcoal text-sm">Rahul M.</h4>
-                            <span class="text-xs text-gray-500">Regular Customer</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="flex justify-center gap-2 mt-4 text-gray-400 md:hidden">
-                <i data-lucide="arrow-left" class="w-5 h-5"></i> Swipe to read <i data-lucide="arrow-right" class="w-5 h-5"></i>
             </div>
         </div>
     </section>
 
-    <!-- LOCATION & CONTACT -->
     <section id="contact" class="py-24 bg-white px-6 md:px-12">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <!-- Info -->
             <div class="space-y-8 flex flex-col justify-center">
                 <div>
                     <h4 class="text-brown uppercase tracking-widest text-sm font-bold mb-2">Visit Us</h4>
                     <h2 class="font-serif text-4xl md:text-5xl text-charcoal">We're Waiting For You</h2>
                 </div>
-                
+
                 <div class="space-y-6">
                     <div class="flex gap-4 items-start">
                         <div class="bg-sand p-3 rounded-full text-ocean shrink-0"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
@@ -439,7 +388,7 @@
                             <p class="text-gray-600">2-91, Beach Rd, Gudla Vani Palem, Sagar Nagar,<br>Endada, Andhra Pradesh 530045</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex gap-4 items-start">
                         <div class="bg-sand p-3 rounded-full text-ocean shrink-0"><i data-lucide="clock" class="w-6 h-6"></i></div>
                         <div>
@@ -450,7 +399,7 @@
                             </p>
                         </div>
                     </div>
-                    
+
                     <div class="flex gap-4 items-start">
                         <div class="bg-sand p-3 rounded-full text-ocean shrink-0"><i data-lucide="phone" class="w-6 h-6"></i></div>
                         <div>
@@ -461,7 +410,7 @@
                 </div>
 
                 <div class="pt-4 flex flex-wrap gap-4">
-                    <a href="https://maps.google.com/?q=Sagar+Nagar+Beach+Visakhapatnam" target="_blank" class="bg-charcoal hover:bg-black text-white px-6 py-3 rounded-full font-medium transition flex items-center gap-2">
+                    <a href="https://maps.google.com/?q=Pawffe+Cafe+Visakhapatnam" target="_blank" class="bg-charcoal hover:bg-black text-white px-6 py-3 rounded-full font-medium transition flex items-center gap-2">
                         Get Directions <i data-lucide="navigation" class="w-4 h-4"></i>
                     </a>
                     <a href="https://wa.me/917995035786" target="_blank" class="bg-[#25D366] hover:bg-[#1ebd5a] text-white px-6 py-3 rounded-full font-medium transition flex items-center gap-2">
@@ -470,28 +419,24 @@
                 </div>
             </div>
 
-            <!-- Map -->
             <div class="rounded-3xl overflow-hidden shadow-soft h-[400px] lg:h-[500px] bg-gray-100">
-                <!-- Embed Google Map - Using coordinates near Sagar Nagar/Endada Beach Road -->
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3799.3496030310243!2d83.35186001533215!3d17.774438387847775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b00424578b9%3A0xc0fb196e87f8b9!2sSagar%20Nagar%20Beach!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.000000000000!2d83.35000000000001!3d17.75000000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b0000000001%3A0x0000000000000000!2sSagar%20Nagar%2C%20Visakhapatnam!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" 
                     width="100%" 
                     height="100%" 
                     style="border:0;" 
                     allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                    loading="lazy">
                 </iframe>
             </div>
         </div>
     </section>
 
-    <!-- FINAL CTA STRIP -->
     <section id="reserve" class="bg-ocean text-white py-20 px-6 md:px-12 text-center">
         <div class="max-w-3xl mx-auto space-y-8">
             <h2 class="font-serif text-4xl md:text-5xl font-bold">Plan Your Visit Today</h2>
-            <p class="text-sand/90 text-lg">Secure your spot for a perfect seaside coffee date, a productive work session, or a relaxing evening with your furry friend.</p>
-            
+            <p class="text-sand/90 text-lg">Secure your spot for a perfect seaside coffee date or a relaxing evening with your furry friend.</p>
+
             <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                 <button onclick="alert('Thank you! Our team will contact you shortly to confirm your reservation.')" class="bg-white text-ocean hover:bg-sand px-8 py-4 rounded-full font-bold transition text-lg shadow-lg">
                     Reserve a Table Now
@@ -503,24 +448,22 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-charcoal text-white/70 py-12 px-6 md:px-12 text-center md:text-left border-b-[80px] sm:border-b-0 border-transparent">
+    <footer class="bg-charcoal text-white/70 py-12 px-6 md:px-12 text-center md:text-left">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="col-span-1 md:col-span-2">
                 <h3 class="font-serif text-3xl font-bold text-white mb-4">Pawffe<span class="text-brown">.</span></h3>
                 <p class="max-w-sm mx-auto md:mx-0">A seaside café where great food meets pet-friendly comfort. Come for the coffee, stay for the lifestyle.</p>
             </div>
-            
+
             <div>
                 <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h4>
                 <ul class="space-y-2">
                     <li><a href="#about" class="hover:text-white transition">Our Story</a></li>
                     <li><a href="#menu" class="hover:text-white transition">Menu</a></li>
                     <li><a href="#gallery" class="hover:text-white transition">Gallery</a></li>
-                    <li><a href="#" class="hover:text-white transition">Official Portal</a></li>
                 </ul>
             </div>
-            
+
             <div>
                 <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Socials</h4>
                 <div class="flex justify-center md:justify-start gap-4">
@@ -530,26 +473,21 @@
                     <a href="#" class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition text-white">
                         <i data-lucide="facebook" class="w-5 h-5"></i>
                     </a>
-                    <a href="#" class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition text-white">
-                        <i data-lucide="twitter" class="w-5 h-5"></i>
-                    </a>
                 </div>
             </div>
         </div>
-        
+
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <p>&copy; 2026 Pawffe Cafe. All rights reserved.</p>
+            <p>© 2026 Pawffe Cafe. All rights reserved.</p>
             <p>Designed for beachside living.</p>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/917995035786" target="_blank" class="fixed bottom-20 sm:bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 transition z-40 flex items-center justify-center" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/917995035786" target="_blank" class="fixed bottom-20 sm:bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition z-40">
         <i data-lucide="message-circle" class="w-7 h-7"></i>
     </a>
 
-    <!-- Mobile Bottom CTA Bar (Sticky) -->
-    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] p-3 flex gap-3 sm:hidden z-50">
+    <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-3 flex gap-3 sm:hidden z-50">
         <a href="tel:+917995035786" class="flex-1 bg-gray-100 text-charcoal py-3 rounded-xl font-semibold flex justify-center items-center gap-2">
             <i data-lucide="phone" class="w-4 h-4"></i> Call
         </a>
@@ -558,15 +496,10 @@
         </a>
     </div>
 
-    <!-- JavaScript Interactions -->
     <script>
-        // Initialize Icons
         lucide.createIcons();
 
-        // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
-        const logoText = document.querySelector('.logo-text');
-        const navLinks = document.querySelectorAll('.nav-link');
         const menuBtn = document.getElementById('mobile-menu-btn');
         let isMenuOpen = false;
 
@@ -588,7 +521,6 @@
 
         window.addEventListener('scroll', updateNavState);
 
-        // Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
@@ -602,15 +534,11 @@
                 menuBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>';
             }
             lucide.createIcons();
-            updateNavState(); // Keep the icon color aligned with the background state
+            updateNavState();
         }
 
         menuBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (isMenuOpen) toggleMenu();
-            });
-        });
+        mobileLinks.forEach(link => link.addEventListener('click', () => isMenuOpen && toggleMenu()));
     </script>
 </body>
 </html>
