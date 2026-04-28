@@ -50,6 +50,7 @@
         }
         @media (min-width: 640px) { .masonry { column-count: 2; } }
         @media (min-width: 1024px) { .masonry { column-count: 3; } }
+        
         .masonry-item {
             break-inside: avoid;
             margin-bottom: 1.5rem;
@@ -59,7 +60,7 @@
         }
 
         .img-zoom { transition: transform 0.7s ease; }
-        .masonry-item:hover .img-zoom, .group:hover .img-zoom { transform: scale(1.05); }
+        .masonry-item:hover .img-zoom { transform: scale(1.05); }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -143,7 +144,7 @@
         </div>
 
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
-            <a href="#about" class="text-white/70 hover:text-white transition" aria-label="Scroll down">
+            <a href="#about" class="text-white/70 hover:text-white transition">
                 <i data-lucide="chevron-down" class="w-8 h-8"></i>
             </a>
         </div>
@@ -179,7 +180,7 @@
     <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-light">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] group bg-gray-200">
-                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800" alt="Cute dog resting at a premium cafe" class="w-full h-full object-cover img-zoom">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=800" alt="Pet resting at cafe" class="w-full h-full object-cover img-zoom">
                 <div class="absolute inset-0 bg-ocean/10"></div>
             </div>
 
@@ -189,10 +190,7 @@
                     A place where you don't have to leave your pet behind.
                 </h2>
                 <p class="text-gray-600 leading-relaxed text-lg pt-4">
-                    Located on the serene Beach Road of Endada, Pawffe is more than just a café—it's an escape into a calm beachside lifestyle. We created this space believing that slow mornings, great coffee, and meaningful moments are best shared with our four-legged companions.
-                </p>
-                <p class="text-gray-600 leading-relaxed text-lg pb-4">
-                    Whether you're looking for a comfortable long-stay environment to work remotely, a picturesque spot for a weekend brunch, or simply a place to unwind while your pet relaxes by your side, Pawffe offers a premium, lifestyle-oriented experience tailored for you.
+                    Located on the serene Beach Road of Endada, Pawffe is an escape into a calm beachside lifestyle. Slow mornings, great coffee, and meaningful moments are best shared with our four-legged companions.
                 </p>
                 <a href="#gallery" class="inline-flex items-center gap-2 text-ocean font-semibold hover:text-brown transition text-lg border-b-2 border-transparent hover:border-brown pb-1">
                     Discover the Experience <i data-lucide="arrow-right" class="w-5 h-5"></i>
@@ -206,68 +204,48 @@
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
                 <h4 class="text-brown uppercase tracking-widest text-sm font-bold">Taste the Coast</h4>
                 <h2 class="font-serif text-4xl md:text-5xl text-charcoal">Carefully Crafted Menu</h2>
-                <p class="text-gray-600">From hearty breakfasts to signature beverages, our menu is designed to delight your taste buds while you soak in the ocean views.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
-                    <div class="h-48 overflow-hidden relative bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=600&q=80" alt="Healthy Breakfast Plate" class="w-full h-full object-cover img-zoom">
+                <div class="group rounded-2xl bg-light shadow-soft overflow-hidden border border-gray-100 flex flex-col h-full">
+                    <div class="h-48 overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=600&q=80" alt="Breakfast" class="w-full h-full object-cover img-zoom">
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-2xl mb-2 text-charcoal">Breakfast Specials</h3>
-                            <p class="text-gray-600 text-sm mb-4">Start your day right with our fresh plates. Includes avocado toasts, pancakes, and healthy bowls.</p>
-                        </div>
-                        <span class="text-ocean font-medium text-sm mt-auto block">Served till 12 PM</span>
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-serif text-2xl mb-2 text-charcoal">Breakfast Specials</h3>
+                        <p class="text-gray-600 text-sm">Fresh avocado toasts, pancakes, and healthy bowls served till 12 PM.</p>
                     </div>
                 </div>
 
-                <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
-                    <div class="h-48 overflow-hidden relative bg-gray-200">
-                        <div class="absolute top-3 right-3 bg-white text-brown text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md">Customer Favorite</div>
-                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="Iced Caramel Coffee" class="w-full h-full object-cover img-zoom">
+                <div class="group rounded-2xl bg-light shadow-soft overflow-hidden border border-gray-100 flex flex-col h-full">
+                    <div class="h-48 overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80" alt="Signature Coffee" class="w-full h-full object-cover img-zoom">
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-2xl mb-2 text-charcoal">Salted Caramel Cold Coffee</h3>
-                            <p class="text-gray-600 text-sm mb-4">Our signature blend. Rich espresso mixed with sea salt caramel and creamy milk, served ice cold.</p>
-                        </div>
-                        <span class="text-ocean font-medium text-sm mt-auto block">Signature Drink</span>
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-serif text-2xl mb-2 text-charcoal">Cold Coffee</h3>
+                        <p class="text-gray-600 text-sm">Rich espresso mixed with sea salt caramel and creamy milk.</p>
                     </div>
                 </div>
 
-                <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
-                    <div class="h-48 overflow-hidden relative bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80" alt="Latte Art Coffee" class="w-full h-full object-cover img-zoom">
+                <div class="group rounded-2xl bg-light shadow-soft overflow-hidden border border-gray-100 flex flex-col h-full">
+                    <div class="h-48 overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80" alt="Artisanal Coffee" class="w-full h-full object-cover img-zoom">
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-2xl mb-2 text-charcoal">Coffee & Beverages</h3>
-                            <p class="text-gray-600 text-sm mb-4">Artisanal coffees, refreshing mocktails, and healthy smoothies. Crafted by our expert baristas.</p>
-                        </div>
-                        <span class="text-ocean font-medium text-sm mt-auto block">Hot & Cold</span>
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-serif text-2xl mb-2 text-charcoal">Artisanal Brews</h3>
+                        <p class="text-gray-600 text-sm">Carefully selected beans crafted by our expert baristas.</p>
                     </div>
                 </div>
 
-                <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
-                    <div class="h-48 overflow-hidden relative bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=600&q=80" alt="Artisan Cake Dessert" class="w-full h-full object-cover img-zoom">
+                <div class="group rounded-2xl bg-light shadow-soft overflow-hidden border border-gray-100 flex flex-col h-full">
+                    <div class="h-48 overflow-hidden bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=600&q=80" alt="Desserts" class="w-full h-full object-cover img-zoom">
                     </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h3 class="font-serif text-2xl mb-2 text-charcoal">Artisan Desserts</h3>
-                            <p class="text-gray-600 text-sm mb-4">Indulge in freshly baked pastries and cakes. The perfect pairing for your coffee.</p>
-                        </div>
-                        <span class="text-ocean font-medium text-sm mt-auto block">Baked Daily</span>
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-serif text-2xl mb-2 text-charcoal">Freshly Baked</h3>
+                        <p class="text-gray-600 text-sm">Indulge in our selection of pastries and artisan cakes daily.</p>
                     </div>
                 </div>
-            </div>
-
-            <div class="mt-12 text-center">
-                <button class="bg-transparent border-2 border-ocean text-ocean hover:bg-ocean hover:text-white px-8 py-3 rounded-full font-medium transition duration-300">
-                    Explore Full Menu
-                </button>
             </div>
         </div>
     </section>
@@ -279,74 +257,23 @@
                     <h4 class="text-brown uppercase tracking-widest text-sm font-bold mb-3">The Pawffe Vibe</h4>
                     <h2 class="font-serif text-4xl md:text-5xl text-charcoal">A Glimpse of the Experience</h2>
                 </div>
-                <a href="#" class="flex items-center gap-2 text-charcoal hover:text-brown transition font-medium">
-                    Follow us on Instagram <i data-lucide="instagram" class="w-5 h-5"></i>
-                </a>
             </div>
 
             <div class="masonry">
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beautiful ocean view" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beach View" class="w-full h-auto img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Cute dog resting at cafe" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Happy Dog" class="w-full h-auto img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Warm aesthetic cafe interior" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Cafe Interior" class="w-full h-auto img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80" alt="Delicious cafe food" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80" alt="Foodie" class="w-full h-auto img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1536098565842-c9511b27e7ad?auto=format&fit=crop&w=600&q=80" alt="A man sitting at a table with food" class="w-full h-auto img-zoom">
-                </div>
-                <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Barista preparing coffee" class="w-full h-auto img-zoom">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-sand px-6 md:px-12 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="flex justify-center gap-1 text-brown mb-4">
-                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
-                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
-                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
-                    <i data-lucide="star" class="w-6 h-6 fill-current"></i>
-                    <i data-lucide="star-half" class="w-6 h-6 fill-current"></i>
-                </div>
-                <h2 class="font-serif text-3xl md:text-4xl text-charcoal">Rated 4.4 out of 250+ Reviews</h2>
-            </div>
-
-            <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0">
-                <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
-                    <div class="flex text-ocean mb-4 gap-1">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-gray-700 italic mb-6">"Great ambience & tasty food! The sea breeze paired with their salted caramel coffee is heavenly. My golden retriever loved the space too."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-sand rounded-full flex items-center justify-center font-bold text-brown">A</div>
-                        <div>
-                            <h4 class="font-bold text-charcoal text-sm">Ananya R.</h4>
-                            <span class="text-xs text-gray-500">Local Guide</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
-                    <div class="flex text-ocean mb-4 gap-1">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-gray-700 italic mb-6">"Perfect breakfast experience. I come here to work on my laptop. The Wi-Fi is fast and the vibe is unbeatable."</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-sand rounded-full flex items-center justify-center font-bold text-brown">V</div>
-                        <div>
-                            <h4 class="font-bold text-charcoal text-sm">Vikram S.</h4>
-                            <span class="text-xs text-gray-500">Freelancer</span>
-                        </div>
-                    </div>
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Coffee Pour" class="w-full h-auto img-zoom">
                 </div>
             </div>
         </div>
@@ -362,86 +289,44 @@
 
                 <div class="space-y-6">
                     <div class="flex gap-4 items-start">
-                        <div class="bg-sand p-3 rounded-full text-ocean shrink-0"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                        <div class="bg-sand p-3 rounded-full text-ocean shrink-0"><i data-lucide="map-pin"></i></div>
                         <div>
                             <h4 class="font-bold text-charcoal text-lg mb-1">Address</h4>
-                            <p class="text-gray-600">2-91, Beach Rd, Gudla Vani Palem, Sagar Nagar,<br>Endada, Andhra Pradesh 530045</p>
+                            <p class="text-gray-600">2-91, Beach Rd, Sagar Nagar, Endada, AP 530045</p>
                         </div>
                     </div>
-
                     <div class="flex gap-4 items-start">
-                        <div class="bg-sand p-3 rounded-full text-ocean shrink-0"><i data-lucide="clock" class="w-6 h-6"></i></div>
+                        <div class="bg-sand p-3 rounded-full text-ocean shrink-0"><i data-lucide="clock"></i></div>
                         <div>
                             <h4 class="font-bold text-charcoal text-lg mb-1">Working Hours</h4>
-                            <p class="text-gray-600">Monday - Sunday</p>
-                            <p class="text-ocean font-semibold mt-1 flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Open Now · Closes 12 AM
-                            </p>
+                            <p class="text-gray-600">Mon - Sun: Closes 12 AM</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-4 flex flex-wrap gap-4">
-                    <a href="#" class="bg-charcoal hover:bg-black text-white px-6 py-3 rounded-full font-medium transition flex items-center gap-2">
-                        Get Directions <i data-lucide="navigation" class="w-4 h-4"></i>
+                <div class="pt-4">
+                    <a href="tel:+917995035786" class="bg-ocean hover:bg-[#23484c] text-white px-8 py-4 rounded-full font-medium transition shadow-lg inline-block">
+                        Call 079950 35786
                     </a>
                 </div>
             </div>
 
-            <div class="rounded-3xl overflow-hidden shadow-soft h-[400px] lg:h-[500px] bg-gray-100">
-                <div class="w-full h-full flex items-center justify-center text-gray-400">Map Loading...</div>
+            <div class="rounded-3xl overflow-hidden shadow-soft h-[400px] bg-gray-100 flex items-center justify-center">
+                <p class="text-gray-400 font-medium">Interactive Map View</p>
             </div>
         </div>
     </section>
 
-    <section id="reserve" class="bg-ocean text-white py-20 px-6 md:px-12 text-center">
-        <div class="max-w-3xl mx-auto space-y-8">
-            <h2 class="font-serif text-4xl md:text-5xl font-bold">Plan Your Visit Today</h2>
-            <p class="text-sand/90 text-lg">Secure your spot for a perfect seaside coffee date or a relaxing evening with your furry friend.</p>
-
-            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <button onclick="alert('Thank you! Our team will contact you shortly to confirm your reservation.')" class="bg-white text-ocean hover:bg-sand px-8 py-4 rounded-full font-bold transition text-lg shadow-lg">
-                    Reserve a Table Now
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-charcoal text-white/70 py-12 px-6 md:px-12 text-center md:text-left">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="col-span-1 md:col-span-2">
-                <h3 class="font-serif text-3xl font-bold text-white mb-4">Pawffe<span class="text-brown">.</span></h3>
-                <p class="max-w-sm mx-auto md:mx-0">A seaside café where great food meets pet-friendly comfort. Come for the coffee, stay for the lifestyle.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Quick Links</h4>
-                <ul class="space-y-2">
-                    <li><a href="#about" class="hover:text-white transition">Our Story</a></li>
-                    <li><a href="#menu" class="hover:text-white transition">Menu</a></li>
-                    <li><a href="#gallery" class="hover:text-white transition">Gallery</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Socials</h4>
-                <div class="flex justify-center md:justify-start gap-4">
-                    <a href="#" class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition text-white">
-                        <i data-lucide="instagram" class="w-5 h-5"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+    <footer class="bg-charcoal text-white/70 py-12 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto text-center md:text-left">
+            <h3 class="font-serif text-3xl font-bold text-white mb-4">Pawffe<span class="text-brown">.</span></h3>
             <p>© 2026 Pawffe Cafe. All rights reserved.</p>
         </div>
     </footer>
 
     <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 p-3 flex gap-3 sm:hidden z-50">
-        <a href="tel:+917995035786" class="flex-1 bg-gray-100 text-charcoal py-3 rounded-xl font-semibold flex justify-center items-center gap-2">
-            <i data-lucide="phone" class="w-4 h-4"></i> Call
-        </a>
-        <a href="#reserve" class="flex-1 bg-ocean text-white py-3 rounded-xl font-semibold flex justify-center items-center gap-2">
-            Reserve
-        </a>
+        <a href="tel:+917995035786" class="flex-1 bg-gray-100 text-charcoal py-3 rounded-xl font-semibold text-center">Call</a>
+        <a href="#reserve" class="flex-1 bg-ocean text-white py-3 rounded-xl font-semibold text-center">Reserve</a>
     </div>
 
     <script>
@@ -449,44 +334,35 @@
 
         const navbar = document.getElementById('navbar');
         const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
         let isMenuOpen = false;
 
         function updateNavState() {
             if (window.scrollY > 50 || isMenuOpen) {
                 navbar.classList.add('nav-scrolled');
-                navbar.classList.remove('py-4');
                 navbar.classList.add('py-2');
                 menuBtn.classList.remove('text-white');
                 menuBtn.classList.add('text-charcoal');
             } else {
                 navbar.classList.remove('nav-scrolled');
-                navbar.classList.add('py-4');
                 navbar.classList.remove('py-2');
                 menuBtn.classList.add('text-white');
                 menuBtn.classList.remove('text-charcoal');
             }
         }
 
-        window.addEventListener('scroll', updateNavState);
-
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
         function toggleMenu() {
             isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('translate-x-full');
-                menuBtn.innerHTML = '<i data-lucide="x" class="w-7 h-7"></i>';
-            } else {
-                mobileMenu.classList.add('translate-x-full');
-                menuBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>';
-            }
+            mobileMenu.classList.toggle('translate-x-full');
+            menuBtn.innerHTML = isMenuOpen ? '<i data-lucide="x" class="w-7 h-7"></i>' : '<i data-lucide="menu" class="w-7 h-7"></i>';
             lucide.createIcons();
             updateNavState();
         }
 
+        window.addEventListener('scroll', updateNavState);
         menuBtn.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', () => isMenuOpen && toggleMenu()));
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
     </script>
 </body>
 </html>
