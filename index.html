@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -35,6 +36,7 @@
                     },
                     boxShadow: {
                         'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'modal': '0 25px 50px -12px rgba(0,0,0,0.25)',
                     }
                 }
             }
@@ -90,6 +92,36 @@
         .hero-gradient {
             background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
         }
+
+        /* Modal Transitions */
+        .custom-modal {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .custom-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .custom-modal.active .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            opacity: 0;
+        }
+        
+        /* Form inputs styling override for clean look */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator:hover,
+        input[type="time"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-light relative">
@@ -104,9 +136,9 @@
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="nav-link text-white hover:text-sand transition font-medium">Our Story</a>
                 <a href="#menu" class="nav-link text-white hover:text-sand transition font-medium">Menu</a>
+                <a href="#events" class="nav-link text-white hover:text-sand transition font-medium">Events</a>
                 <a href="#gallery" class="nav-link text-white hover:text-sand transition font-medium">Experience</a>
-                <a href="#contact" class="nav-link text-white hover:text-sand transition font-medium">Location</a>
-                <a href="#reserve" class="bg-ocean hover:bg-[#23484c] text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg">Reserve a Table</a>
+                <button onclick="openModal('reservation-modal')" class="bg-ocean hover:bg-[#23484c] text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg">Reserve a Table</button>
             </div>
 
             <!-- Mobile Menu Toggle -->
@@ -119,8 +151,9 @@
         <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 text-2xl font-serif">
             <a href="#about" class="mobile-link text-charcoal hover:text-brown">Our Story</a>
             <a href="#menu" class="mobile-link text-charcoal hover:text-brown">Menu</a>
+            <a href="#events" class="mobile-link text-charcoal hover:text-brown">Events</a>
             <a href="#gallery" class="mobile-link text-charcoal hover:text-brown">Experience</a>
-            <a href="#contact" class="mobile-link text-charcoal hover:text-brown">Location</a>
+            <button onclick="openModal('reservation-modal'); toggleMenu();" class="text-ocean hover:text-brown font-bold mt-4">Reserve a Table</button>
         </div>
     </nav>
 
@@ -151,9 +184,9 @@
             </p>
             
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#reserve" class="w-full sm:w-auto bg-ocean hover:bg-[#23484c] text-white px-8 py-4 rounded-full font-medium transition text-lg shadow-xl text-center">
+                <button onclick="openModal('reservation-modal')" class="w-full sm:w-auto bg-ocean hover:bg-[#23484c] text-white px-8 py-4 rounded-full font-medium transition text-lg shadow-xl text-center">
                     Reserve a Table
-                </a>
+                </button>
                 <a href="#menu" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/50 px-8 py-4 rounded-full font-medium transition text-lg text-center">
                     View Menu
                 </a>
@@ -298,6 +331,55 @@
         </div>
     </section>
 
+    <!-- NEW FEATURE: EVENTS & CELEBRATIONS SECTION -->
+    <section id="events" class="py-24 bg-sand px-6 md:px-12 border-y border-brown/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h4 class="text-brown uppercase tracking-widest text-sm font-bold">Celebrate With Us</h4>
+                <h2 class="font-serif text-4xl md:text-5xl text-charcoal">Exclusive Pet Events</h2>
+                <p class="text-gray-600">From splashy pool parties to bespoke birthday bashes for your furry friends, Pawffe is the ultimate destination for pet celebrations.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Event 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft group border border-white flex flex-col h-full">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80" alt="Dogs playing in pool" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="font-serif text-2xl mb-3 text-charcoal">Dog Pool Parties</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">A safe, clean, and fun splash zone for your pets to socialize, cool down, and play by the beach.</p>
+                        <button onclick="openEventModal('Pool Party')" class="text-ocean font-bold hover:text-brown transition flex items-center gap-2 mt-auto">Inquire Now <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Event 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft group border border-white flex flex-col h-full">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=600&q=80" alt="Dog birthday cake" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="font-serif text-2xl mb-3 text-charcoal">Pet Birthdays</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Custom pet-safe cakes, dedicated decor, and a reserved VIP section for your dog's special day.</p>
+                        <button onclick="openEventModal('Birthday Bash')" class="text-ocean font-bold hover:text-brown transition flex items-center gap-2 mt-auto">Plan a Birthday <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Event 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-soft group border border-white flex flex-col h-full">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953eb1b5ce?auto=format&fit=crop&w=600&q=80" alt="Cafe meetup" class="w-full h-full object-cover img-zoom">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="font-serif text-2xl mb-3 text-charcoal">Private Mixers</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">Book our space for breed-specific meetups, adoption drives, or private human and pet gatherings.</p>
+                        <button onclick="openEventModal('Private Mixer')" class="text-ocean font-bold hover:text-brown transition flex items-center gap-2 mt-auto">Book Space <i data-lucide="arrow-right" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- GALLERY SECTION -->
     <section id="gallery" class="py-24 bg-light px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
@@ -314,32 +396,35 @@
             <div class="masonry">
                 <!-- Gallery Images with distinct, high quality IDs -->
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beautiful ocean view" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beautiful ocean view" class="w-full h-auto object-cover img-zoom">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
                         <i data-lucide="heart" class="text-white w-8 h-8"></i>
                     </div>
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Cute dog resting at cafe" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Cute dog resting at cafe" class="w-full h-auto object-cover img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Warm aesthetic cafe interior" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80" alt="Warm aesthetic cafe interior" class="w-full h-auto object-cover img-zoom">
                 </div>
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80" alt="Delicious cafe food" class="w-full h-auto img-zoom">
+                    <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80" alt="Delicious cafe food" class="w-full h-auto object-cover img-zoom">
                 </div>
-                      <div class="masonry-item group shadow-soft bg-gray-200">
-  <img src="premium_photo-1680158492794-79896e951487.jpeg" alt="Friends enjoying coffee together" class="w-full h-auto img-zoom">
-</div>
+                
+                <!-- User's Local Image - Adjusted to ensure it scales cleanly -->
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Barista preparing coffee" class="w-full h-auto img-zoom">
+                    <img src="premium_photo-1680158492794-79896e951487.jpeg" alt="Friends enjoying coffee together" class="w-full h-auto object-cover img-zoom min-h-[250px]">
+                </div>
+
+                <div class="masonry-item group shadow-soft bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Barista preparing coffee" class="w-full h-auto object-cover img-zoom">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- REVIEWS / SOCIAL PROOF -->
-    <section class="py-24 bg-sand px-6 md:px-12 overflow-hidden">
+    <section class="py-24 bg-white px-6 md:px-12 overflow-hidden border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <div class="flex justify-center gap-1 text-brown mb-4">
@@ -355,7 +440,7 @@
             <!-- Carousel -->
             <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0">
                 <!-- Review 1 -->
-                <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
+                <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
@@ -370,7 +455,7 @@
                 </div>
 
                 <!-- Review 2 -->
-                <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
+                <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
@@ -385,7 +470,7 @@
                 </div>
 
                 <!-- Review 3 -->
-                <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
+                <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star-half" class="w-4 h-4 fill-current"></i>
                     </div>
@@ -400,7 +485,7 @@
                 </div>
                 
                  <!-- Review 4 -->
-                <div class="snap-center shrink-0 w-80 md:w-96 bg-white p-8 rounded-2xl shadow-soft border border-white">
+                <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
@@ -422,7 +507,7 @@
     </section>
 
     <!-- LOCATION & CONTACT -->
-    <section id="contact" class="py-24 bg-white px-6 md:px-12">
+    <section id="contact" class="py-24 bg-light px-6 md:px-12">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
             <!-- Info -->
             <div class="space-y-8 flex flex-col justify-center">
@@ -487,13 +572,13 @@
     </section>
 
     <!-- FINAL CTA STRIP -->
-    <section id="reserve" class="bg-ocean text-white py-20 px-6 md:px-12 text-center">
+    <section class="bg-ocean text-white py-20 px-6 md:px-12 text-center">
         <div class="max-w-3xl mx-auto space-y-8">
             <h2 class="font-serif text-4xl md:text-5xl font-bold">Plan Your Visit Today</h2>
             <p class="text-sand/90 text-lg">Secure your spot for a perfect seaside coffee date, a productive work session, or a relaxing evening with your furry friend.</p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                <button onclick="alert('Thank you! Our team will contact you shortly to confirm your reservation.')" class="bg-white text-ocean hover:bg-sand px-8 py-4 rounded-full font-bold transition text-lg shadow-lg">
+                <button onclick="openModal('reservation-modal')" class="bg-white text-ocean hover:bg-sand px-8 py-4 rounded-full font-bold transition text-lg shadow-lg">
                     Reserve a Table Now
                 </button>
                 <a href="tel:+917995035786" class="bg-transparent border border-white hover:bg-white/10 px-8 py-4 rounded-full font-medium transition text-lg">
@@ -516,8 +601,8 @@
                 <ul class="space-y-2">
                     <li><a href="#about" class="hover:text-white transition">Our Story</a></li>
                     <li><a href="#menu" class="hover:text-white transition">Menu</a></li>
+                    <li><a href="#events" class="hover:text-white transition">Events</a></li>
                     <li><a href="#gallery" class="hover:text-white transition">Gallery</a></li>
-                    <li><a href="#" class="hover:text-white transition">Official Portal</a></li>
                 </ul>
             </div>
             
@@ -553,9 +638,154 @@
         <a href="tel:+917995035786" class="flex-1 bg-gray-100 text-charcoal py-3 rounded-xl font-semibold flex justify-center items-center gap-2">
             <i data-lucide="phone" class="w-4 h-4"></i> Call
         </a>
-        <a href="#reserve" class="flex-1 bg-ocean text-white py-3 rounded-xl font-semibold flex justify-center items-center gap-2">
+        <button onclick="openModal('reservation-modal')" class="flex-1 bg-ocean text-white py-3 rounded-xl font-semibold flex justify-center items-center gap-2">
             Reserve
-        </a>
+        </button>
+    </div>
+
+    <!-- 1. TABLE RESERVATION MODAL -->
+    <div id="reservation-modal" class="custom-modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+        <div class="modal-content bg-white rounded-3xl w-full max-w-lg mx-4 overflow-hidden shadow-modal max-h-[90vh] flex flex-col relative transition-all duration-300">
+            <button onclick="closeModal('reservation-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-charcoal bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition z-10 focus:outline-none">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="bg-sand/30 p-6 text-center border-b border-gray-100">
+                <h3 class="font-serif text-3xl text-charcoal font-bold">Reserve Your Table</h3>
+                <p class="text-sm text-gray-500 mt-1">Skip the waitlist and book directly with us.</p>
+            </div>
+
+            <div class="p-6 overflow-y-auto" id="res-form-container">
+                <form id="reservation-form" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Full Name</label>
+                            <input type="text" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Phone Number</label>
+                            <input type="tel" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition" placeholder="+91 00000 00000">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Date</label>
+                            <input type="date" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Time</label>
+                            <input type="time" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Human Guests</label>
+                            <select class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition cursor-pointer appearance-none">
+                                <option value="1">1 Person</option>
+                                <option value="2" selected>2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5+">5+ People</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1 flex items-center gap-1">Furry Friends <i data-lucide="paw-print" class="w-3 h-3"></i></label>
+                            <select class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition cursor-pointer appearance-none">
+                                <option value="0">None</option>
+                                <option value="1" selected>1 Pet</option>
+                                <option value="2">2 Pets</option>
+                                <option value="3+">3+ Pets</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Special Requests</label>
+                        <textarea rows="2" class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition resize-none" placeholder="Optional notes..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-ocean hover:bg-[#23484c] text-white py-4 rounded-xl font-bold text-lg transition shadow-md flex justify-center items-center gap-2">
+                        Confirm Reservation <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+            <div id="res-success-container" class="hidden p-8 text-center flex-col items-center justify-center space-y-4 h-full py-16">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-500 mx-auto mb-2">
+                    <i data-lucide="check" class="w-10 h-10"></i>
+                </div>
+                <h3 class="font-serif text-3xl text-charcoal font-bold">Booking Confirmed!</h3>
+                <p class="text-gray-500">We've received your table reservation. Our team will send you a confirmation message on WhatsApp shortly.</p>
+                <button onclick="closeModal('reservation-modal')" class="mt-4 text-ocean font-bold hover:text-brown transition border-b-2 border-transparent hover:border-brown pb-1">Close Window</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. EVENT BOOKING MODAL -->
+    <div id="event-modal" class="custom-modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+        <div class="modal-content bg-white rounded-3xl w-full max-w-lg mx-4 overflow-hidden shadow-modal max-h-[90vh] flex flex-col relative transition-all duration-300">
+            <button onclick="closeModal('event-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-charcoal bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition z-10 focus:outline-none">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="bg-sand/30 p-6 text-center border-b border-gray-100">
+                <h3 class="font-serif text-3xl text-charcoal font-bold">Event Inquiry</h3>
+                <p class="text-sm text-gray-500 mt-1">Tell us about the celebration you are planning.</p>
+            </div>
+
+            <div class="p-6 overflow-y-auto" id="event-form-container">
+                <form id="event-form" class="space-y-5">
+                    
+                    <!-- Pre-filled via JS based on which button they clicked -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Event Type</label>
+                        <select id="event-type-select" class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition cursor-pointer appearance-none font-medium">
+                            <option value="Pool Party">Dog Pool Party</option>
+                            <option value="Birthday Bash">Pet Birthday Bash</option>
+                            <option value="Private Mixer">Private Mixer / Meetup</option>
+                            <option value="Other">Other Custom Event</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Your Name</label>
+                            <input type="text" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Phone Number</label>
+                            <input type="tel" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none transition">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Expected Date</label>
+                            <input type="date" class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Est. Headcount</label>
+                            <input type="number" min="1" placeholder="e.g. 15" class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Event Details</label>
+                        <textarea rows="3" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition resize-none" placeholder="Tell us more about the pet(s) and what you have in mind!"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-charcoal hover:bg-black text-white py-4 rounded-xl font-bold text-lg transition shadow-md flex justify-center items-center gap-2">
+                        Send Inquiry <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div id="event-success-container" class="hidden p-8 text-center flex-col items-center justify-center space-y-4 h-full py-16">
+                <div class="w-20 h-20 bg-ocean/10 rounded-full flex items-center justify-center text-ocean mx-auto mb-2">
+                    <i data-lucide="party-popper" class="w-10 h-10"></i>
+                </div>
+                <h3 class="font-serif text-3xl text-charcoal font-bold">Inquiry Received!</h3>
+                <p class="text-gray-500">Our event coordinator will review your request and call you shortly to discuss packages and pricing.</p>
+                <button onclick="closeModal('event-modal')" class="mt-4 text-ocean font-bold hover:text-brown transition border-b-2 border-transparent hover:border-brown pb-1">Close Window</button>
+            </div>
+        </div>
     </div>
 
     <!-- JavaScript Interactions -->
@@ -565,8 +795,6 @@
 
         // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
-        const logoText = document.querySelector('.logo-text');
-        const navLinks = document.querySelectorAll('.nav-link');
         const menuBtn = document.getElementById('mobile-menu-btn');
         let isMenuOpen = false;
 
@@ -602,7 +830,7 @@
                 menuBtn.innerHTML = '<i data-lucide="menu" class="w-7 h-7"></i>';
             }
             lucide.createIcons();
-            updateNavState(); // Keep the icon color aligned with the background state
+            updateNavState();
         }
 
         menuBtn.addEventListener('click', toggleMenu);
@@ -611,6 +839,78 @@
                 if (isMenuOpen) toggleMenu();
             });
         });
+
+        // MODAL SYSTEM
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Reset to form views if they were previously submitted
+            if (modalId === 'reservation-modal') {
+                document.getElementById('res-form-container').classList.remove('hidden');
+                document.getElementById('res-success-container').classList.add('hidden');
+                document.getElementById('res-success-container').classList.remove('flex');
+                document.getElementById('reservation-form').reset();
+            } else if (modalId === 'event-modal') {
+                document.getElementById('event-form-container').classList.remove('hidden');
+                document.getElementById('event-success-container').classList.add('hidden');
+                document.getElementById('event-success-container').classList.remove('flex');
+                document.getElementById('event-form').reset();
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Dedicated opener for events to pre-fill the dropdown based on clicked button
+        function openEventModal(eventType) {
+            openModal('event-modal');
+            const selectElement = document.getElementById('event-type-select');
+            if(selectElement) {
+                selectElement.value = eventType;
+            }
+        }
+
+        // Close modal when clicking outside the white box content
+        document.querySelectorAll('.custom-modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Form Submit Simulators
+        document.getElementById('reservation-form').addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            document.getElementById('res-form-container').classList.add('hidden');
+            document.getElementById('res-success-container').classList.remove('hidden');
+            document.getElementById('res-success-container').classList.add('flex');
+            
+            setTimeout(() => {
+                const modal = document.getElementById('reservation-modal');
+                if(modal.classList.contains('active')) closeModal('reservation-modal');
+            }, 5000);
+        });
+
+        document.getElementById('event-form').addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            document.getElementById('event-form-container').classList.add('hidden');
+            document.getElementById('event-success-container').classList.remove('hidden');
+            document.getElementById('event-success-container').classList.add('flex');
+            
+            setTimeout(() => {
+                const modal = document.getElementById('event-modal');
+                if(modal.classList.contains('active')) closeModal('event-modal');
+            }, 5000);
+        });
     </script>
 </body>
 </html>
+
+
+```
