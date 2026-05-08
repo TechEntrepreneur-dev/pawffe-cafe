@@ -6,18 +6,14 @@
     <title>Pawffe | Pet Friendly Restaurant & Cafe | Beach Road</title>
     <meta name="description" content="Pawffe is a premium pet-friendly restaurant and café on Beach Road, Endada. Enjoy great food, ocean views, and a relaxed lifestyle where your pets are always welcome.">
     
-    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Configuration & Custom CSS -->
     <script>
         tailwind.config = {
             theme: {
@@ -125,13 +121,10 @@
 </head>
 <body class="bg-light relative">
 
-    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 bg-transparent text-white py-4 px-6 md:px-12">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo -->
             <a href="#" class="logo-text font-serif text-3xl font-bold tracking-tight z-50 text-white">Pawffe<span class="text-brown">.</span></a>
             
-            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="nav-link text-white hover:text-sand transition font-medium">Our Story</a>
                 <a href="#menu" class="nav-link text-white hover:text-sand transition font-medium">Menu</a>
@@ -140,13 +133,11 @@
                 <button onclick="openModal('reservation-modal')" class="bg-ocean hover:bg-[#23484c] text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg">Reserve a Table</button>
             </div>
 
-            <!-- Mobile Menu Toggle -->
             <button id="mobile-menu-btn" class="md:hidden z-50 text-white focus:outline-none transition-colors" aria-label="Toggle Menu">
                 <i data-lucide="menu" class="w-7 h-7"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Overlay -->
         <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 text-2xl font-serif">
             <a href="#about" class="mobile-link text-charcoal hover:text-brown">Our Story</a>
             <a href="#menu" class="mobile-link text-charcoal hover:text-brown">Menu</a>
@@ -156,15 +147,12 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-        <!-- Background Image -->
         <div class="absolute inset-0 z-0 bg-gray-900">
             <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=1920" alt="Ocean view premium cafe" class="w-full h-full object-cover opacity-90" />
             <div class="absolute inset-0 hero-gradient z-10"></div>
         </div>
 
-        <!-- Hero Content -->
         <div class="relative z-20 text-center px-4 max-w-4xl mx-auto mt-16">
             <div class="flex justify-center gap-4 mb-6 text-sand text-sm uppercase tracking-widest font-medium">
                 <span class="flex items-center gap-1"><i data-lucide="star" class="w-4 h-4 fill-current"></i> 4.4 Rating</span>
@@ -192,7 +180,6 @@
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
             <a href="#about" class="text-white/70 hover:text-white transition" aria-label="Scroll down">
                 <i data-lucide="chevron-down" class="w-8 h-8"></i>
@@ -200,7 +187,6 @@
         </div>
     </header>
 
-    <!-- WHY CHOOSE US (Icon Bar) -->
     <section class="bg-sand py-12 border-b border-brown/10 relative z-30">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-wrap justify-center md:justify-between items-center gap-8 text-center md:text-left">
@@ -228,7 +214,6 @@
         </div>
     </section>
 
-    <!-- ABOUT / STORY SECTION -->
     <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto bg-light">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl h-[500px] group bg-gray-200">
@@ -254,7 +239,6 @@
         </div>
     </section>
 
-    <!-- MENU / OFFERINGS SECTION -->
     <section id="menu" class="py-24 bg-white px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -264,7 +248,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Menu Card 1 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <img src="https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=600&q=80" alt="Healthy Breakfast Plate" class="w-full h-full object-cover img-zoom">
@@ -278,7 +261,6 @@
                     </div>
                 </div>
 
-                <!-- Menu Card 2 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <div class="absolute top-3 right-3 bg-white text-brown text-xs font-bold px-3 py-1 rounded-full z-10 shadow-md">Customer Favorite</div>
@@ -293,7 +275,6 @@
                     </div>
                 </div>
 
-                <!-- Menu Card 3 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=80" alt="Latte Art Coffee" class="w-full h-full object-cover img-zoom">
@@ -307,7 +288,6 @@
                     </div>
                 </div>
 
-                <!-- Menu Card 4 -->
                 <div class="group rounded-2xl bg-light shadow-soft overflow-hidden hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col h-full">
                     <div class="h-48 overflow-hidden relative bg-gray-200">
                         <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=600&q=80" alt="Artisan Cake Dessert" class="w-full h-full object-cover img-zoom">
@@ -330,7 +310,6 @@
         </div>
     </section>
 
-    <!-- NEW FEATURE: EVENTS & CELEBRATIONS SECTION -->
     <section id="events" class="py-24 bg-sand px-6 md:px-12 border-y border-brown/10">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
@@ -340,7 +319,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Event 1 -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-soft group border border-white flex flex-col h-full">
                     <div class="h-56 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80" alt="Dogs playing in pool" class="w-full h-full object-cover img-zoom">
@@ -352,7 +330,6 @@
                     </div>
                 </div>
                 
-                <!-- Event 2 -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-soft group border border-white flex flex-col h-full">
                     <div class="h-56 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=600&q=80" alt="Dog birthday cake" class="w-full h-full object-cover img-zoom">
@@ -364,10 +341,9 @@
                     </div>
                 </div>
                 
-                <!-- Event 3 -->
                 <div class="bg-white rounded-2xl overflow-hidden shadow-soft group border border-white flex flex-col h-full">
                     <div class="h-56 overflow-hidden relative">
-                        <img src="photo-1744995537110-a78964c7719c.jpeg?auto=format&fit=crop&w=600&q=80" alt="Cafe meetup" class="w-full h-full object-cover img-zoom">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Cafe meetup" class="w-full h-full object-cover img-zoom">
                     </div>
                     <div class="p-8 flex flex-col flex-grow">
                         <h3 class="font-serif text-2xl mb-3 text-charcoal">Private Mixers</h3>
@@ -379,7 +355,6 @@
         </div>
     </section>
 
-    <!-- GALLERY SECTION -->
     <section id="gallery" class="py-24 bg-light px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
@@ -393,7 +368,6 @@
             </div>
 
             <div class="masonry">
-                <!-- Gallery Images with distinct, high quality IDs -->
                 <div class="masonry-item group shadow-soft bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Beautiful ocean view" class="w-full h-auto object-cover img-zoom">
                     <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
@@ -409,12 +383,9 @@
                 <div class="masonry-item group shadow-soft bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=600&q=80" alt="Delicious cafe food" class="w-full h-auto object-cover img-zoom">
                 </div>
-                
-                <!-- User's Local Image - Adjusted to ensure it scales cleanly -->
                 <div class="masonry-item group shadow-soft bg-gray-200">
-                    <img src="premium_photo-1680158492794-79896e951487.jpeg" alt="Friends enjoying coffee together" class="w-full h-auto object-cover img-zoom min-h-[250px]">
+                    <img src="https://images.unsplash.com/photo-1680158492794-79896e951487?auto=format&fit=crop&w=600&q=80" alt="Friends enjoying coffee together" class="w-full h-auto object-cover img-zoom min-h-[250px]">
                 </div>
-
                 <div class="masonry-item group shadow-soft bg-gray-200">
                     <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80" alt="Barista preparing coffee" class="w-full h-auto object-cover img-zoom">
                 </div>
@@ -422,7 +393,6 @@
         </div>
     </section>
 
-    <!-- REVIEWS / SOCIAL PROOF -->
     <section class="py-24 bg-white px-6 md:px-12 overflow-hidden border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
@@ -436,9 +406,7 @@
                 <h2 class="font-serif text-3xl md:text-4xl text-charcoal">Rated 4.4 out of 250+ Reviews</h2>
             </div>
 
-            <!-- Carousel -->
             <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8 -mx-6 px-6 md:mx-0 md:px-0">
-                <!-- Review 1 -->
                 <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -453,7 +421,6 @@
                     </div>
                 </div>
 
-                <!-- Review 2 -->
                 <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -468,7 +435,6 @@
                     </div>
                 </div>
 
-                <!-- Review 3 -->
                 <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star-half" class="w-4 h-4 fill-current"></i>
@@ -483,8 +449,7 @@
                     </div>
                 </div>
                 
-                 <!-- Review 4 -->
-                <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
+                 <div class="snap-center shrink-0 w-80 md:w-96 bg-light p-8 rounded-2xl shadow-sm border border-gray-100">
                     <div class="flex text-ocean mb-4 gap-1">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
                     </div>
@@ -505,10 +470,8 @@
         </div>
     </section>
 
-    <!-- LOCATION & CONTACT -->
     <section id="contact" class="py-24 bg-light px-6 md:px-12">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <!-- Info -->
             <div class="space-y-8 flex flex-col justify-center">
                 <div>
                     <h4 class="text-brown uppercase tracking-widest text-sm font-bold mb-2">Visit Us</h4>
@@ -545,7 +508,7 @@
                 </div>
 
                 <div class="pt-4 flex flex-wrap gap-4">
-                    <a href="https://maps.google.com/?q=Sagar+Nagar+Beach+Visakhapatnam" target="_blank" class="bg-charcoal hover:bg-black text-white px-6 py-3 rounded-full font-medium transition flex items-center gap-2">
+                    <a href="https://www.google.com/maps/dir//Pawffe+Cafe+2-91,+Beach+Rd+Gudla+Vani+Palem,+Sagar+Nagar+Endada,+Andhra+Pradesh+530045" target="_blank" class="bg-charcoal hover:bg-black text-white px-6 py-3 rounded-full font-medium transition flex items-center gap-2">
                         Get Directions <i data-lucide="navigation" class="w-4 h-4"></i>
                     </a>
                     <a href="https://wa.me/917995035786" target="_blank" class="bg-[#25D366] hover:bg-[#1ebd5a] text-white px-6 py-3 rounded-full font-medium transition flex items-center gap-2">
@@ -554,11 +517,9 @@
                 </div>
             </div>
 
-            <!-- Map -->
             <div class="rounded-3xl overflow-hidden shadow-soft h-[400px] lg:h-[500px] bg-gray-100">
-                <!-- Embed Google Map - Using coordinates near Sagar Nagar/Endada Beach Road -->
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m3!1d3799.3496030310243!2d83.35186001533215!3d17.774438387847775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b00424578b9%3A0xc0fb196e87f8b9!2sSagar%20Nagar%20Beach!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.046934444585!2d83.355152875172!3d17.742468383186252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395b051877991b%3A0xc3c9f28d84a7e937!2sPawffe%20Cafe!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
                     width="100%" 
                     height="100%" 
                     style="border:0;" 
@@ -570,7 +531,6 @@
         </div>
     </section>
 
-    <!-- FINAL CTA STRIP -->
     <section class="bg-ocean text-white py-20 px-6 md:px-12 text-center">
         <div class="max-w-3xl mx-auto space-y-8">
             <h2 class="font-serif text-4xl md:text-5xl font-bold">Plan Your Visit Today</h2>
@@ -587,7 +547,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-charcoal text-white/70 py-12 px-6 md:px-12 text-center md:text-left border-b-[80px] sm:border-b-0 border-transparent">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="col-span-1 md:col-span-2">
@@ -622,17 +581,15 @@
         </div>
         
         <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <p>&copy; 2026 Pawffe Cafe. All rights reserved.</p>
+            <p>© 2026 Pawffe Cafe. All rights reserved.</p>
             <p>Designed for beachside living.</p>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/917995035786" target="_blank" class="fixed bottom-20 sm:bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 transition z-40 flex items-center justify-center" aria-label="Chat on WhatsApp">
         <i data-lucide="message-circle" class="w-7 h-7"></i>
     </a>
 
-    <!-- Mobile Bottom CTA Bar (Sticky) -->
     <div class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-4px_10px_rgba(0,0,0,0.05)] p-3 flex gap-3 sm:hidden z-50">
         <a href="tel:+917995035786" class="flex-1 bg-gray-100 text-charcoal py-3 rounded-xl font-semibold flex justify-center items-center gap-2">
             <i data-lucide="phone" class="w-4 h-4"></i> Call
@@ -642,18 +599,15 @@
         </button>
     </div>
 
-    <!-- 1. TABLE RESERVATION MODAL -->
     <div id="reservation-modal" class="custom-modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300">
         <div class="modal-content bg-white rounded-3xl w-full max-w-lg mx-4 overflow-hidden shadow-modal max-h-[90vh] flex flex-col relative transition-all duration-300">
             <button onclick="closeModal('reservation-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-charcoal bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition z-10 focus:outline-none">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-
             <div class="bg-sand/30 p-6 text-center border-b border-gray-100">
                 <h3 class="font-serif text-3xl text-charcoal font-bold">Reserve Your Table</h3>
                 <p class="text-sm text-gray-500 mt-1">Skip the waitlist and book directly with us.</p>
             </div>
-
             <div class="p-6 overflow-y-auto" id="res-form-container">
                 <form id="reservation-form" class="space-y-5">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -717,22 +671,17 @@
         </div>
     </div>
 
-    <!-- 2. EVENT BOOKING MODAL -->
     <div id="event-modal" class="custom-modal fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300">
         <div class="modal-content bg-white rounded-3xl w-full max-w-lg mx-4 overflow-hidden shadow-modal max-h-[90vh] flex flex-col relative transition-all duration-300">
             <button onclick="closeModal('event-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-charcoal bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition z-10 focus:outline-none">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-
             <div class="bg-sand/30 p-6 text-center border-b border-gray-100">
                 <h3 class="font-serif text-3xl text-charcoal font-bold">Event Inquiry</h3>
                 <p class="text-sm text-gray-500 mt-1">Tell us about the celebration you are planning.</p>
             </div>
-
             <div class="p-6 overflow-y-auto" id="event-form-container">
                 <form id="event-form" class="space-y-5">
-                    
-                    <!-- Pre-filled via JS based on which button they clicked -->
                     <div>
                         <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Event Type</label>
                         <select id="event-type-select" class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition cursor-pointer appearance-none font-medium">
@@ -742,7 +691,6 @@
                             <option value="Other">Other Custom Event</option>
                         </select>
                     </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Your Name</label>
@@ -753,7 +701,6 @@
                             <input type="tel" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none transition">
                         </div>
                     </div>
-
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Expected Date</label>
@@ -764,35 +711,29 @@
                             <input type="number" min="1" placeholder="e.g. 15" class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none transition">
                         </div>
                     </div>
-
                     <div>
                         <label class="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Event Details</label>
                         <textarea rows="3" required class="w-full bg-gray-50 border border-gray-200 text-charcoal rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-ocean transition resize-none" placeholder="Tell us more about the pet(s) and what you have in mind!"></textarea>
                     </div>
-
                     <button type="submit" class="w-full bg-charcoal hover:bg-black text-white py-4 rounded-xl font-bold text-lg transition shadow-md flex justify-center items-center gap-2">
                         Send Inquiry <i data-lucide="send" class="w-5 h-5"></i>
                     </button>
                 </form>
             </div>
-
             <div id="event-success-container" class="hidden p-8 text-center flex-col items-center justify-center space-y-4 h-full py-16">
                 <div class="w-20 h-20 bg-ocean/10 rounded-full flex items-center justify-center text-ocean mx-auto mb-2">
                     <i data-lucide="party-popper" class="w-10 h-10"></i>
                 </div>
                 <h3 class="font-serif text-3xl text-charcoal font-bold">Inquiry Received!</h3>
-                <p class="text-gray-500">Our event coordinator will review your request and call you shortly to discuss packages and pricing.</p>
+                <p class="text-gray-500">Our coordinator will review your request and call you shortly.</p>
                 <button onclick="closeModal('event-modal')" class="mt-4 text-ocean font-bold hover:text-brown transition border-b-2 border-transparent hover:border-brown pb-1">Close Window</button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Interactions -->
     <script>
-        // Initialize Icons
         lucide.createIcons();
 
-        // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
         const menuBtn = document.getElementById('mobile-menu-btn');
         let isMenuOpen = false;
@@ -815,7 +756,6 @@
 
         window.addEventListener('scroll', updateNavState);
 
-        // Mobile Menu Toggle
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
@@ -834,18 +774,13 @@
 
         menuBtn.addEventListener('click', toggleMenu);
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (isMenuOpen) toggleMenu();
-            });
+            link.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); });
         });
 
-        // MODAL SYSTEM
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            
-            // Reset to form views if they were previously submitted
+            document.body.style.overflow = 'hidden';
             if (modalId === 'reservation-modal') {
                 document.getElementById('res-form-container').classList.remove('hidden');
                 document.getElementById('res-success-container').classList.add('hidden');
@@ -862,38 +797,25 @@
         function closeModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
+            document.body.style.overflow = '';
         }
 
-        // Dedicated opener for events to pre-fill the dropdown based on clicked button
         function openEventModal(eventType) {
             openModal('event-modal');
             const selectElement = document.getElementById('event-type-select');
-            if(selectElement) {
-                selectElement.value = eventType;
-            }
+            if(selectElement) selectElement.value = eventType;
         }
 
-        // Close modal when clicking outside the white box content
         document.querySelectorAll('.custom-modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal(modal.id);
-                }
-            });
+            modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(modal.id); });
         });
 
-        // Form Submit Simulators
         document.getElementById('reservation-form').addEventListener('submit', (e) => {
             e.preventDefault(); 
             document.getElementById('res-form-container').classList.add('hidden');
             document.getElementById('res-success-container').classList.remove('hidden');
             document.getElementById('res-success-container').classList.add('flex');
-            
-            setTimeout(() => {
-                const modal = document.getElementById('reservation-modal');
-                if(modal.classList.contains('active')) closeModal('reservation-modal');
-            }, 5000);
+            setTimeout(() => { if(document.getElementById('reservation-modal').classList.contains('active')) closeModal('reservation-modal'); }, 5000);
         });
 
         document.getElementById('event-form').addEventListener('submit', (e) => {
@@ -901,11 +823,7 @@
             document.getElementById('event-form-container').classList.add('hidden');
             document.getElementById('event-success-container').classList.remove('hidden');
             document.getElementById('event-success-container').classList.add('flex');
-            
-            setTimeout(() => {
-                const modal = document.getElementById('event-modal');
-                if(modal.classList.contains('active')) closeModal('event-modal');
-            }, 5000);
+            setTimeout(() => { if(document.getElementById('event-modal').classList.contains('active')) closeModal('event-modal'); }, 5000);
         });
     </script>
 </body>
